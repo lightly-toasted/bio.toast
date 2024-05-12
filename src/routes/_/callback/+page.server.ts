@@ -31,8 +31,5 @@ export const load: PageServerLoad = async ({ url, cookies }) => {
         path: '/'
     })
 
-    // const res = await fetch('https://api.github.com/user', { headers: { 'Authorization': `Bearer ${token}` } })
-    // console.log('hi', await res.json())
-
     throw redirect(302, '/_/self')
 }

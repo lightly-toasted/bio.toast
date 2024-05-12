@@ -1,7 +1,6 @@
 <script lang="ts">
     import type { PageData } from './$types';
 	export let data: PageData;
-    console.log(data)
 
     import { onMount } from 'svelte';
     onMount(() => {
@@ -31,6 +30,18 @@
         <p id="description">{data.github.bio}</p> 
     </div>
     <hr id="github-separator">
+    <div id="repos">
+        <h2>Repositories <span id="repos-count">({data.repos.count})</span></h2>
+        <ul id="">
+            {#if data.repos.list}
+                {#each data.repos.list as repo}
+                <li><a href="{repo.html_url}" id="repo">{repo.full_name}</a></li>
+                {/each}
+            {:else}
+            <p>Failed to load repositories.</p>
+            {/if}
+        </ul>
+    </div>
     {#if data.discord.success && data.discord.data}
         <div id="discord">
             <img src="https://cdn.discordapp.com/avatars/{data.discord.data.discord_user.id}/{data.discord.data.discord_user.avatar}" alt="Discord profile" width="100" height="100"/>
