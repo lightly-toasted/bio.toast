@@ -7,13 +7,10 @@ function decodeBase64(encodedString: string) {
 
 export const load: Load = async ({ url, params, fetch, parent }) => {
   const preview = url.searchParams.get('preview')?.split('|');
-  console.log(preview)
   let styles;
   let config;
   
-  if (preview) { 
-    console.log(preview)
-    
+  if (preview && preview.length > 1) { 
     styles = decodeBase64(preview[0])
     config = JSON.parse(decodeBase64(preview[1]))
   } else {

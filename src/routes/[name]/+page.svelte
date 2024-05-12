@@ -48,14 +48,17 @@
             {/if}
         </ul>
     </div>
+    <hr id="repos-separator">
     {#if data.discord.success && data.discord.data}
         <div id="discord">
+            <h2 id="discord-title">Discord</h2>
             <img src="https://cdn.discordapp.com/avatars/{data.discord.data.discord_user.id}/{data.discord.data.discord_user.avatar}" alt="Discord profile" width="100" height="100"/>
             <div id="discord-user">
                 <h3 id="discord-display">{data.discord.data.discord_user.global_name}</h3>
                 <h4 id="discord-username">{data.discord.data.discord_user.username}</h4>
             </div>
             <p id="discord-status" data-status="{data.discord.data.discord_status}">{data.discord.data.discord_status}</p>
+            <a href="https://discord.com/users/{data.discord.data.discord_user.id}">profile</a>
         </div>
         <hr id="discord-separator">
     {/if}
