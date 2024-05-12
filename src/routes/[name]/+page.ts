@@ -46,10 +46,12 @@ export const load: Load = async ({ url, params, fetch, parent }) => {
     list: reposList
   }
 
-  const discordId = config.discord?.id
+  const discordId = config.discord?.id || '0'
   const apiBaseURL = config.discord?.['lanyard-api-base-url'] || 'https://api.lanyard.rest/v1'
 
-  const discordResponse = await fetch(`/_/api/discord/${discordId}?baseUrl=${apiBaseURL}`)
+  
+
+  const discordResponse = await fetch(`/_/api/discord/${discordId || '0'}?baseUrl=${apiBaseURL}`)
   const discord = await discordResponse.json()
 
   return {
