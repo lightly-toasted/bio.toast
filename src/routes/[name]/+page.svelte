@@ -23,7 +23,7 @@
     {#if data.styles}
     <style bind:textContent={data.styles} contenteditable="true"></style>
     {:else}
-    <link id="styles" rel="stylesheet" href="{data.styles}">
+    <link id="styles" rel="stylesheet" href="classless.css">
     {/if}
 
     <meta name="author" content="@{data.github.login}">
