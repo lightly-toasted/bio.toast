@@ -12,7 +12,7 @@
         let socialLinks: { [key: string]: string } = {}
         socialLinks['github'] = data.github.html_url
         socialLinks = {...socialLinks, ...data.config.social}
-        if (data.github.email && !socialLinks.email) socialLinks['email'] = data.github.email
+        if (data.github.email && !socialLinks.email) socialLinks['email'] = `mailto:${data.github.email}`
         return socialLinks
     }
 </script>
