@@ -11,8 +11,8 @@ Pre-made your bio, you design it.
 If you want to add something to your bio, open [an issue](https://github.com/lightly-toasted/my-bio.toast/issues/new) or [a PR](https://github.com/lightly-toasted/my-bio.toast/compare)(for [src/routes/\[name\]](src/routes/[name]) with proper element id).
 
 ## To-do
-[ ] Fix ratelimit OAuth authentication glitching (not sure what's even happening, if anyone is experiencing this issue please [open an issue](https://github.com/lightly-toasted/my-bio.toast/issues/new).)
-[ ] Add more elements
+- [ ] Fix ratelimit OAuth authentication glitching (not sure what's even happening, if anyone is experiencing this issue please [open an issue](https://github.com/lightly-toasted/my-bio.toast/issues/new).)
+- [ ] Add more elements
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
