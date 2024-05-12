@@ -25,6 +25,17 @@
     {:else}
     <link id="styles" rel="stylesheet" href="{data.styles}">
     {/if}
+
+    <meta name="author" content="@{data.github.login}">
+    <meta property="og:site_name" content="@{data.github.login}" />
+    <meta name="title" content="{data.github.name}">
+    <meta name="description" content="bio.toast.name/{data.github.login} {data.config.description || data.github.bio}">
+    <meta name="theme-color" content="{data.config.themeColor || '#daa520'}">
+    <meta property="og:title" content="{data.github.name}" />
+    <meta property="og:description" content="bio.toast.name/{data.github.login} {data.config.description || data.github.bio}" />
+    <meta property="og:image" content="{data.config.embedImage}" />
+    <meta property="og:type" content="website" />
+    <title>{data.github.name} (@{data.github.login})</title>
 </svelte:head>
 
 <div id="container">
@@ -33,11 +44,11 @@
         <img id="github-profile-image" src="{data.github.avatar_url}" alt="GitHub profile" width="100" height="100"/>
         <div id="profile-info">
             <h1 id="name">{data.config.name || data.github.name}</h1>
-            <h2 id="github-username">@{data.config.description || data.github.login}</h2>
+            <h2 id="github-username">@{data.github.login}</h2>
             {#if data.config.pronouns}
             <p id="pronouns">{data.config.pronouns}</p>
             {/if}
-            <p id="description">{data.github.bio}</p> 
+            <p id="description">{data.config.description || data.github.bio}</p> 
         </div>
     </div>
     <hr id="github-separator">
