@@ -20,10 +20,15 @@
 </script>
 
 <svelte:head>
+    {#if data.styles}
+    <style bind:textContent={data.styles} contenteditable="true"></style>
+    {:else}
     <link id="styles" rel="stylesheet" href="{data.styles}">
+    {/if}
 </svelte:head>
 
 <div id="container">
+    
     <div id="github">
         <img id="github-profile-image" src="{data.github.avatar_url}" alt="GitHub profile" width="100" height="100"/>
         <div id="profile-info">

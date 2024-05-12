@@ -17,7 +17,7 @@ export const load: Load = async ({ url, params, fetch, parent }) => {
     const repoURL = `https://raw.githubusercontent.com/${params.name}/my-bio.toast/main`
 
     const stylesResponse = await fetch(`${repoURL}/styles.css`)
-    styles = stylesResponse.ok ? `${repoURL}/styles.css` : 'classless.css';
+    styles = stylesResponse.ok ? await stylesResponse.text() : ''
 
     const configResponse = await fetch(`${repoURL}/bio.toast.json`)
     config = configResponse.ok ? await configResponse.json() : {};
