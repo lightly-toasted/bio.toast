@@ -2,22 +2,18 @@ import type { Load } from '@sveltejs/kit';
 import { error, redirect } from '@sveltejs/kit';
 
 function decodeBase64(encodedString: string) {
-  const binaryString = atob(encodedString);
-  const bytes = new Uint8Array(binaryString.length);
-  for (let i = 0; i < binaryString.length; i++) {
-    bytes[i] = binaryString.charCodeAt(i);
-  }
-  const decoder = new TextDecoder('utf-8');
-  const result = decoder.decode(bytes);
-  return result;
+  return decodeURIComponent(escape(atob(encodedString)))
 }
 
 export const load: Load = async ({ url, params, fetch, parent }) => {
   const preview = url.searchParams.get('preview')?.split('|');
+  console.log(preview)
   let styles;
   let config;
   
   if (preview) { 
+    console.log(preview)
+    
     styles = decodeBase64(preview[0])
     config = JSON.parse(decodeBase64(preview[1]))
   } else {
@@ -49,7 +45,7 @@ export const load: Load = async ({ url, params, fetch, parent }) => {
   const discordId = config.discord?.id || '0'
   const apiBaseURL = config.discord?.['lanyard-api-base-url'] || 'https://api.lanyard.rest/v1'
 
-  
+
 
   const discordResponse = await fetch(`/_/api/discord/${discordId || '0'}?baseUrl=${apiBaseURL}`)
   const discord = await discordResponse.json()
