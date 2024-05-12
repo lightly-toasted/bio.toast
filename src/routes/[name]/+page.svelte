@@ -25,7 +25,7 @@
 
 <div id="container">
     <div id="github">
-        <img src="{data.github.avatar_url}" alt="GitHub profile" width="100" height="100"/>
+        <img id="github-profile-image" src="{data.github.avatar_url}" alt="GitHub profile" width="100" height="100"/>
         <div id="profile-info">
             <h1 id="name">{data.config.name || data.github.name}</h1>
             <h2 id="github-username">@{data.config.description || data.github.login}</h2>
@@ -52,12 +52,12 @@
     {#if data.discord.success && data.discord.data}
         <div id="discord">
             <h2 id="discord-title">Discord</h2>
-            <img src="https://cdn.discordapp.com/avatars/{data.discord.data.discord_user.id}/{data.discord.data.discord_user.avatar}" alt="Discord profile" width="100" height="100"/>
+            <img id="discord-profile-image" src="https://cdn.discordapp.com/avatars/{data.discord.data.discord_user.id}/{data.discord.data.discord_user.avatar}" alt="Discord profile" width="100" height="100"/>
             <div id="discord-user">
                 <h3 id="discord-display">{data.discord.data.discord_user.global_name}</h3>
                 <h4 id="discord-username">{data.discord.data.discord_user.username}</h4>
+                <p id="discord-status" data-status="{data.discord.data.discord_status}">{data.discord.data.discord_status}</p>
             </div>
-            <p id="discord-status" data-status="{data.discord.data.discord_status}">{data.discord.data.discord_status}</p>
             <a href="https://discord.com/users/{data.discord.data.discord_user.id}">profile</a>
         </div>
         <hr id="discord-separator">
