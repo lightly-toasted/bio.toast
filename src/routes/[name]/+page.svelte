@@ -1,12 +1,11 @@
 <script lang="ts">
     import type { PageData } from './$types';
 	export let data: PageData;
+    let preview: boolean;
 
     import { onMount } from 'svelte';
     onMount(() => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const previewCSS = urlParams.get('preview');
-        if (previewCSS) data.styles = atob(previewCSS)
+        preview = !!new URLSearchParams(window.location.search).get('preview')
     });
 
     function getSocialLinks() {
@@ -32,7 +31,7 @@
     <hr id="github-separator">
     <div id="repos">
         <h2>Repositories <span id="repos-count">({data.repos.count})</span></h2>
-        <ul id="">
+        <ul id="repos-list">
             {#if data.repos.list}
                 {#each data.repos.list as repo}
                 <li><a href="{repo.html_url}" id="repo">{repo.full_name}</a></li>
@@ -61,7 +60,7 @@
             {/each}
         </ul>
     </div>
-    {#if new URLSearchParams(window.location.search).get('preview')}
+    {#if preview}
         <div id="preview">
             <h2>Preview</h2>
             <p>You are previewing your customization files. To reload, use Back button (&#x2B05;) in your web browser or click <button on:click={() => {window.history.back()}}>Reload</button>.</p>
