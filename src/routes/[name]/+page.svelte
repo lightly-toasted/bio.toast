@@ -39,7 +39,6 @@
 </svelte:head>
 
 <div id="container">
-    
     <div id="github">
         <img id="github-profile-image" src="{data.github.avatar_url}" alt="GitHub profile" width="100" height="100"/>
         <div id="profile-info">
@@ -76,7 +75,7 @@
             </div>
             <a href="https://discord.com/users/{data.discord.data.discord_user.id}">profile</a>
         </div>
-        <hr id="discord-separator">
+        <hr id="discord-separator" />
     {/if}
     <div id="social">
         <h2 id="social-title">Social media</h2>
@@ -88,10 +87,21 @@
             {/each}
         </ul>
     </div>
+    <hr id="social-separator" />
+    {#each data.config.customWidgets as widget}
+    {#if ['image', 'img'].includes(widget.type)}
+    <img id="{widget.id}" src="{widget.src}" alt="{widget.alt}" />
+    {:else if ['iframe'].includes(widget.type)}
+    <iframe id="{widget.id}" src="{widget.src}" title="{widget.alt}"></iframe>
+    {:else if ['text', 'p'].includes(widget.type)}
+    <p id="{widget.id}"></p>
+    {/if}
+    <hr id="{widget.id}-separator" class="widget-separator" />
+    {/each}
     {#if preview}
-        <div id="preview">
-            <h2>Preview</h2>
-            <p>You are previewing your customization files. To reload, use Back button (&#x2B05;) in your web browser or click <button on:click={() => {window.history.back()}}>Reload</button>.</p>
-        </div>
+    <div id="preview">
+        <h2>Preview</h2>
+        <p>You are previewing your customization files. To reload, use Back button (&#x2B05;) in your web browser or click <button on:click={() => {window.history.back()}}>Reload</button>.</p>
+    </div>
     {/if}
 </div>
