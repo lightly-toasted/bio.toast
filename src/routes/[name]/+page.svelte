@@ -91,7 +91,7 @@
     {#each data.config.customWidgets as widget}
     {#if ['image', 'img'].includes(widget.type)}
     <img id="{widget.id}" src="{widget.src}" alt="{widget.alt}" />
-    {:else if ['iframe'].includes(widget.type)}
+    {:else if ['embed', 'iframe'].includes(widget.type)}
     <iframe id="{widget.id}" src="{widget.src}" title="{widget.alt}"></iframe>
     {:else if ['text', 'p'].includes(widget.type)}
     <p id="{widget.id}"></p>
