@@ -29,7 +29,7 @@
     <meta name="author" content="@{data.github.login}">
     <meta property="og:site_name" content="@{data.github.login}" />
     <meta name="title" content="{data.github.name}">
-    <meta name="description" content="bio.toast.name/{data.github.login} {data.config.description || data.github.bio}">
+    <meta name="description" content="bio.toast.name/{data.github.login} {data.config.description || data.github.bio || ''}">
     <meta name="theme-color" content="{data.config.themeColor || '#daa520'}">
     <meta property="og:title" content="{data.github.name}" />
     <meta property="og:description" content="bio.toast.name/{data.github.login} {data.config.description || data.github.bio}" />
@@ -47,7 +47,7 @@
             {#if data.config.pronouns}
             <p id="pronouns">{data.config.pronouns}</p>
             {/if}
-            <p id="description">{data.config.description || data.github.bio}</p> 
+            <p id="description">{data.config.description || data.github.bio || ''}</p> 
         </div>
     </div>
     <hr id="github-separator">
