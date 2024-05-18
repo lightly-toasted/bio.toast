@@ -73,7 +73,7 @@
                 <h4 id="discord-username">{data.discord.data.discord_user.username}</h4>
                 <p id="discord-status" data-status="{data.discord.data.discord_status}">{data.discord.data.discord_status}</p>
             </div>
-            <a href="https://discord.com/users/{data.discord.data.discord_user.id}">profile</a>
+            <a href="https://discord.com/users/{data.discord.data.discord_user.id}" id="discord-link">profile</a>
         </div>
         <hr id="discord-separator" />
     {/if}
@@ -101,7 +101,7 @@
     {#if preview}
     <div id="preview">
         <h2>Preview</h2>
-        <p>You are previewing your customization files. To reload, use Back button (&#x2B05;) in your web browser or click <button on:click={() => {window.history.back()}}>Reload</button>.</p>
+        <p>You are previewing your customization files. <button on:click={() => {window.location.href = window.location.origin + window.location.pathname}}>Stop preview</button>.</p>
     </div>
     {/if}
 </div>
