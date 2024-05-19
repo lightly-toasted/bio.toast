@@ -23,7 +23,7 @@
     {#if data.styles}
     <style bind:textContent={data.styles} contenteditable="true"></style>
     {:else}
-    <link id="styles" rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css">
+    <link id="styles" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tiny.css@0/dist/tiny.css">
     {/if}
 
     <meta name="author" content="@{data.github.login}">
