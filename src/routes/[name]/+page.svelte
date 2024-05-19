@@ -35,7 +35,7 @@
     <meta property="og:description" content="bio.toast.name/{data.github.login} {data.config.description || data.github.bio}" />
     <meta property="og:image" content="{data.config.embedImage}" />
     <meta property="og:type" content="website" />
-    <title>{data.github.name} (@{data.github.login})</title>
+    <title>{data.github.name ? `${data.github.name} (@${data.github.login})` : `@${data.github.login}`}</title>
 </svelte:head>
 
 <div id="container">
