@@ -42,7 +42,7 @@
     <div id="github">
         <img id="github-profile-image" src="{data.github.avatar_url}" alt="GitHub profile" width="100" height="100"/>
         <div id="profile-info">
-            <h1 id="name">{data.config.name || data.github.name}</h1>
+            <h1 id="name">{data.config.name || data.github.name || data.github.login}</h1>
             <h2 id="github-username">@{data.github.login}</h2>
             {#if data.config.pronouns}
             <p id="pronouns">{data.config.pronouns}</p>
@@ -88,7 +88,7 @@
         </ul>
     </div>
     <hr id="social-separator" />
-    {#each data.config.customWidgets as widget}
+    {#each data.config.customWidgets || [] as widget}
     {#if ['image', 'img'].includes(widget.type)}
     <img id="{widget.id}" src="{widget.src}" alt="{widget.alt}" />
     {:else if ['embed', 'iframe'].includes(widget.type)}
