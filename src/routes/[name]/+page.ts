@@ -14,7 +14,7 @@ export const load: Load = async ({ url, params, fetch, parent }) => {
     styles = decodeBase64(preview[0])
     config = JSON.parse(decodeBase64(preview[1]))
   } else {
-    const repoURL = `https://raw.githubusercontent.com/${params.name}/my-bio.toast/main`
+    const repoURL = `https://raw.githubusercontent.com/${params.name}/${params.name}.bio.toast/main`
 
     const stylesResponse = await fetch(`${repoURL}/styles.css`)
     styles = stylesResponse.ok ? await stylesResponse.text() : ''
